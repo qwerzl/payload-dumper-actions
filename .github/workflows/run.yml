@@ -12,6 +12,7 @@ jobs:
 
       - name: Install depedencies
         run: |
+          apt update && apt install p7zip-full p7zip-rar
           mkdir tmp
           wget https://github.com/ssut/payload-dumper-go/releases/download/1.2.0/payload-dumper-go_1.2.0_linux_amd64.tar.gz -P tmp/
           tar zxvf ./tmp/payload-dumper-go_1.2.0_linux_amd64.tar.gz -o payload-dumper-go
@@ -27,7 +28,11 @@ jobs:
           rm -rf tmp/
           rm payload-dumper-go
           
+      - name: Compress with 7zip
+        run: |
+          7z a Output.7z ./output/* 
+          
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2
         with:
-          path: './output/*'
+          path: './Output.7z'
