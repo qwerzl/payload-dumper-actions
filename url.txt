@@ -1,1 +1,1 @@
-https://downloads.sourceforge.net/project/derpfest/guacamole/DerpFest-12-Official-Shion-guacamole-20220116.zip?ts=gAAAAABh6kLZPFJEXkWYEzFIm4TJLZ-6DWwWdblGYM6JzQuMxunApQxObAAvPD9mHsF0VgrgbDCIhp7JDCPp9tR5TMaHw9kNQg%3D%3D&use_mirror=udomain&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fderpfest%2Ffiles%2Fguacamole%2F
+https://master.dl.sourceforge.net/project/derpfest/guacamole/DerpFest-12-Official-Shion-guacamole-20220124-1943.zip?viasf=1
