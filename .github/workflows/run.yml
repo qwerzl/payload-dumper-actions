@@ -12,7 +12,6 @@ jobs:
 
       - name: Install depedencies
         run: |
-          sudo apt update && sudo apt install p7zip-full p7zip-rar
           mkdir tmp
           wget https://github.com/ssut/payload-dumper-go/releases/download/1.2.0/payload-dumper-go_1.2.0_linux_amd64.tar.gz -P tmp/
           tar zxvf ./tmp/payload-dumper-go_1.2.0_linux_amd64.tar.gz -o payload-dumper-go
@@ -20,19 +19,14 @@ jobs:
       - name: Download ROM
         run: |
           wget -O ./tmp/ROM.zip -i url.txt
-          unzip -o ./tmp/ROM.zip -d tmp/ "payload.bin"
-
       - name: Dump payload.bin
         run: |
-          ./payload-dumper-go -o output ./tmp/payload.bin
+          ./payload-dumper-go -p boot -o output ./tmp/ROM.zip
           rm -rf tmp/
           rm payload-dumper-go
-          
-      - name: Compress with 7zip
-        run: |
-          7z a Output.7z ./output/* 
           
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2
         with:
-          path: './Output.7z'
+          name: boot.img
+          path: './output/boot.img'
